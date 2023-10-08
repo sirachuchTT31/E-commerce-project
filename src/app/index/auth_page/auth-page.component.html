@@ -1,0 +1,92 @@
+<div class="wrapper-auth">
+    <div class="row m-0 d-flex justify-content-center" *ngIf="status_page == 'login'">
+        <div class="col-lg-7">
+            <div class="box-border-auth">
+                <form [formGroup]="authForm">
+                    <div class="box-border-inline ">
+                        <div class="row m-0 content-height">
+                            <div class="box-content-auth-left">
+                                <img src="/assets/img/bg_auth.png" class="img-width-auth">
+                            </div>
+                            <div class="box-content-auth-right">
+                                <div class="box-content-auth-right-card">
+                                    <div class="text-start mt-4 ps-3">
+                                        <span class="text-bold-size-35">Welcome to </span>
+                                        <span class="text-bold-size-15">e-commerce</span>
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Username</label>
+                                        <input type="text" formControlName="user_name" class="form-control text-center">
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Password</label>
+                                        <input type="text" formControlName="password" class="form-control text-center">
+                                    </div>
+                                    <div class="box-form pt-3 text-center">
+                                        <button class="btn btn-primary w-50" (click)="submitLogin()">L O G I N</button>
+                                    </div>
+                                    <div class="box-form pt-3 text-center">
+                                        <p>you dont have account ! <button class="btn-custom-register"
+                                                (click)="_setStatuspage('register')">Register</button></p>
+                                    </div>
+                                    <!-- <h1 class="pt-3 text-start ps-2">Welcome to e-commerce</h1> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0 d-flex justify-content-center" *ngIf="status_page == 'register'">
+        <div class="col-lg-7">
+            <div class="box-border-auth">
+                <div class="box-border-inline ">
+                    <div class="row m-0 content-height">
+                        <div class="box-content-auth-left">
+                            <img src="/assets/img/bg_auth.png" class="img-width-auth">
+                        </div>
+                        <div class="box-content-auth-right">
+                            <form [formGroup]="registerForm">
+                                <div class="box-content-auth-right-card">
+                                    <div class="text-start mt-2 ps-3">
+                                        <span class="text-bold-size-35">Register </span>
+                                        <span class="text-bold-size-15">e-commerce</span>
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control text-center" formControlName="user_name">
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control text-center"
+                                            formControlName="user_password">
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control text-center" formControlName="name">
+                                    </div>
+                                    <div class="box-form pt-3">
+                                        <label>Lastname</label>
+                                        <input type="text" class="form-control text-center" formControlName="lastname">
+                                    </div>
+                                    <div class="box-form pt-3 text-center">
+                                        <button type="submit" class="btn btn-warning w-50" (click)="submitRegister()">Register</button>
+                                    </div>
+                                    <div class="box-form pt-3 text-center">
+                                        <p>you go to login page! <button class="btn-custom-login"
+                                                (click)="_setStatuspage('login')">Login</button></p>
+                                    </div>
+
+                                    <!-- <h1 class="pt-3 text-start ps-2">Welcome to e-commerce</h1> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

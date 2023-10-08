@@ -30,7 +30,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate.css",
+              "node_modules/ngx-spinner/animations/ball-fall.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": []
           },
@@ -100,5 +105,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "b21b490a-ceb2-44f4-a997-4a9798dcbeb0"
   }
 }

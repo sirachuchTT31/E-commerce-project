@@ -1,0 +1,55 @@
+<div>
+    <app-header-menu-flag [menu_category]="'test'"></app-header-menu-flag>
+</div>
+<div class="row box-display-content m-0 d-flex p-4" *ngFor="let rs of this.product_detail; index as i">
+    <div class="box-detail-product-left mb-5">
+        <div class="card-box-detail">
+            <div class="box-img-detail text-center">
+                <img src="{{rs.global_image}}" class="img-content-detail ">
+            </div>
+        </div>
+    </div>
+    <div class="box-detail-product-right ">
+        <div class="box-text-detail-product mb-1">
+            <p class="text-title-detail-product m-0">สินค้า</p>
+            <p class="text-inline-detail-product">{{rs.product_name}}</p>
+        </div>
+        <div class="box-text-detail-product mb-1">
+            <p class="text-title-detail-product m-0">ยี่ห้อ</p>
+            <p class="text-inline-detail-product">{{rs.product_for_company}}</p>
+        </div>
+        <div class="box-text-detail-product mb-1">
+            <p class="text-title-detail-product m-0">รายละเอียด</p>
+            <p class="text-inline-detail-product">{{rs.product_detail}}</p>
+        </div>
+        <div class="box-text-detail-product mb-1">
+            <p class="text-title-detail-product m-0">ราคา</p>
+            <p class="text-inline-detail-product text-danger">{{formatNumber(rs.product_price)}} ฿</p>
+        </div>
+        <div class="box-text-detail-product mb-1">
+            <p class="text-title-detail-product m-0">จำนวน</p>
+            <p class="">{{(rs.product_qty)}}</p>
+        </div>
+        <div class="box-text-detail-product mb-4">
+            <p class="text-title-detail-product m-0">ลักษณะ</p>
+            <!-- {{i}} -->
+            <div class="w-50 d-flex justify-content-between">
+                <button class="btn btn-light b-boder w-120px" *ngFor="let type of this.product_detail[i].product_type;">
+                    {{(type)}}
+                </button>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="box-button-add">
+            <button class="button-add-cart me-2 mt-1">Add cart </button>
+            <button class="button-buy-product me-2 mt-1">Buy</button>
+        </div>
+    </div>
+</div>
+<!-- box comment  -->
+<div class="row box-review-product-wrapper-content  m-0 d-flex mt-3">
+    <div class="box-wrapper-review-header">
+        <h3>Review</h3>
+        <hr class="mb-4">
+    </div>
+</div>

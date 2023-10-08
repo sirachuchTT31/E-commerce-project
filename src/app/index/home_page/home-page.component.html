@@ -1,0 +1,67 @@
+<div class="wrapper-box-header-home m-0 " 
+   >
+    <!-- <app-home-header></app-home-header> -->
+    <div class="box-slide-content">
+        <div class="d-flex gap-1">
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2038/2038767.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2271/2271062.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Blue_computer_icon.svg/768px-Blue_computer_icon.svg.png"
+                    style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn3.iconfinder.com/data/icons/hotel-services-solid/128/restaurant_shop_food_mess_canteen_restaurateur_knife_fork_cafe-512.png"
+                    style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2249/2249538.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1138/1138598.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4080/4080032.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2201/2201570.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4477/4477610.png" style="width: 60px; height: 60px;">
+            </div>
+            <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1670/1670643.png" style="width: 60px; height: 60px;">
+            </div>
+            <!-- <div class="content-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2038/2038767.png" style="width: 60px; height: 60px;">
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- <div class="text-center">
+    
+</div> -->
+<div class="row box-display-content m-0 d-flex gap-4 ">
+    <div class="box-content-home-page" *ngFor="let rs of this.products;" index="i">
+        <div class="card-custom-border mb-5" style="width: 15rem;height: 30rem;" (click)="_detailProducts(rs._id)">
+            <img src="{{rs.global_image}}" class="card-img-top img-content mb-3" alt="...">
+            <div class="card-body ">
+                <p class="card-title-header pb-2">{{rs.product_name}}</p>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p> -->
+                <p class="card-title-detail">{{rs.product_detail}}</p><br>
+                <!-- <a href="#" class="btn btn-success">รายละเอียด</a> -->
+                <!-- <a href="#" class="btn btn-primary mt-5">Go somewhere</a> -->
+                
+            </div>
+            <div class="text-start">
+                <p class="text-price">{{formatNumber(rs.product_price)}} BATH</p>
+                <!-- <p class="text-price">{{formatNumber(rs.product_type[1])}} TYPE</p> -->
+                <!-- <a  class="btn btn-primary " (click)="addCart()">กดเพื่อสั่งซื้อ</a> -->
+            </div>
+        </div>
+    </div>
+</div>
