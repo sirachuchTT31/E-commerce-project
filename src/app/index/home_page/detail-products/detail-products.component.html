@@ -1,5 +1,5 @@
 <div>
-    <app-header-menu-flag [menu_category]="'test'"></app-header-menu-flag>
+    <app-header-menu-flag [menu_category]="this._category_name"></app-header-menu-flag>
 </div>
 <div class="row box-display-content m-0 d-flex p-4" *ngFor="let rs of this.product_detail; index as i">
     <div class="box-detail-product-left mb-5">
@@ -28,15 +28,32 @@
         </div>
         <div class="box-text-detail-product mb-1">
             <p class="text-title-detail-product m-0">จำนวน</p>
-            <p class="">{{(rs.product_qty)}}</p>
+            <div class="box-group-add-remove">
+                <div class="input-group ">
+                    <div class="input-group-btn ">
+                        <button class="btn btn-add-remove"><span class=""></span>-</button>
+                    </div>
+                    <input type="text" id="myNumber" class="form-control input-number bd-solid-btn" value="1" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-add-remove"><span class="">+</span></button>
+                    </div>
+                    <label class="ms-2 mt-2">จำนวนคงเหลือ {{(rs.product_qty)}}</label>
+                </div>
+                
+            </div>
         </div>
         <div class="box-text-detail-product mb-4">
             <p class="text-title-detail-product m-0">ลักษณะ</p>
             <!-- {{i}} -->
-            <div class="w-50 d-flex justify-content-between">
-                <button class="btn btn-light b-boder w-120px" *ngFor="let type of this.product_detail[i].product_type;">
-                    {{(type)}}
-                </button>
+            <div class="w-50 d-flex">
+                <div class="w-120px pt-2 me-2" *ngFor="let type of this.product_detail[i].product_type;">
+                    <input type="checkbox" class="btn-check" id="btn-check-2">
+                    <label class="btn btn-light b-boder w-120px" for="btn-check-2"> {{(type)}}</label>
+                </div>
+
+                <!-- <button class="btn btn-light b-boder w-120px" >
+                   
+                </button> -->
             </div>
         </div>
         <hr class="mb-4">

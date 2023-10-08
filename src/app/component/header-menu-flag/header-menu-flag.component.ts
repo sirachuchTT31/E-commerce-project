@@ -9,4 +9,8 @@ export class HeaderMenuFlagComponent {
   @Input() home: string = 'Home'
   @Input() menu_category: string = ''
   @Input() menu_detail: string = ''
+
+  callHomeurl(){
+    window.location.href = 'web/prodcuts'
+  }
 }

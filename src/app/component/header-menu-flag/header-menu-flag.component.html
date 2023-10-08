@@ -1,6 +1,6 @@
 <div class="box-header-menu-flag">
     <span class="text-menu-flag">
-        <small class="" *ngIf="home !=''">{{home}}</small>
+        <small class="" *ngIf="home !=''" (click)="callHomeurl()">{{home}}</small>
         <small class="ps-2" *ngIf="menu_category !=''"> /</small>
         <small class="ps-2" *ngIf="menu_category !=''">{{menu_category}}</small>
         <small class="ps-2" *ngIf="menu_detail !=''"> /</small>

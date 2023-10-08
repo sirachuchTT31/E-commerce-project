@@ -1,3 +1,4 @@
+import { CategoryService } from './../../../shared/service/category.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/service/products.service';
@@ -10,8 +11,9 @@ import { ProductService } from 'src/app/shared/service/products.service';
 export class DetailProductsComponent {
   _id: any
   product_detail: Array<any> = []
-  _category: any
-  constructor(private route: ActivatedRoute, private productService: ProductService) {
+  _category_code: any
+  _category_name: string = ''
+  constructor(private route: ActivatedRoute, private productService: ProductService, private categoryService: CategoryService) {
 
   }
   ngOnInit() {
@@ -27,15 +29,11 @@ export class DetailProductsComponent {
 
   getproductsById() {
     try {
-      this.productService.getproductById(this._id).subscribe((rs) => {
+      this.productService.getproductById(this._id).subscribe(async (rs) => {
         if (rs?.status == 200) {
-          let param = {
-            result: rs.result
-          }
           this.product_detail.push(rs.result)
-          console.log(this.product_detail)
-          //this.product_detail.push(rs.result)
-          console.log(rs.result)
+          this._category_code = rs.result.category_code
+          await this.getCategoryName()
         }
         else {
           console.log(rs?.message)
@@ -45,6 +43,17 @@ export class DetailProductsComponent {
     catch (e) {
       console.error(e)
     }
+  }
+
+  getCategoryName() {
+    this.categoryService.getCategoryById(this._category_code).subscribe((rs) => {
+      if (rs?.status == 200) {
+        this._category_name = rs.result.category_name
+      }
+      else {
+
+      }
+    })
   }
   formatNumber(x: any) {
     if (x) {
