@@ -4,7 +4,8 @@ import { Injectable } from "@angular/core"
     providedIn: "root",
 })
 export class TokenStorageService {
-    signIn(token: any, name: any, lastname: any, user_profile: any, time_out: any) {
+    signIn(user_name: any, token: any, name: any, lastname: any, user_profile: any, time_out: any) {
+        localStorage.setItem("user_name", user_name)
         localStorage.setItem("token", token)
         localStorage.setItem("name", name)
         localStorage.setItem("lastname", lastname)
@@ -12,13 +13,16 @@ export class TokenStorageService {
         localStorage.setItem("time_out", time_out)
     }
     signOut() {
+        localStorage.removeItem("user_name")
         localStorage.removeItem("token")
         localStorage.removeItem("name")
         localStorage.removeItem("lastname")
         localStorage.removeItem("user_profile")
         localStorage.removeItem("time_out")
     }
-
+    public get usernameStorage(): string | null {
+        return localStorage.getItem("user_name")
+    }
     public get tokenStorage(): string | null {
         return localStorage.getItem("token")
     }

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'e-commerce-web';
   page = ''
   token_time_out: any
-  constructor(private router: Router, private routeActive: ActivatedRoute, private spinner: NgxSpinnerService,private tokenStorageservice: TokenStorageService) {
+  constructor(private router: Router, private routeActive: ActivatedRoute, private spinner: NgxSpinnerService, private tokenStorageservice: TokenStorageService) {
     this.spinner.show()
     this.token_time_out = this.tokenStorageservice.timeoutStorage
   }
@@ -23,20 +23,22 @@ export class AppComponent implements OnInit {
       let current = this.router.url.split('/')
       this.page = current[2]
       this.spinner.hide()
-    }, 2000)
+    },)
     this.timeout_token()
   }
 
   timeout_token() {
     if (this.token_time_out) {
-      setTimeout(() => {
+      setTimeout(async () => {
         this.tokenStorageservice.signOut()
-        Swal.fire({
+        await Swal.fire({
           icon: 'error',
           title: "Timeout token",
           showCancelButton: true,
           showConfirmButton: false,
-        })
+          timer: 10000,
+        }),
+          window.location.href = '/web/login'
       }, this.token_time_out)
     }
   }

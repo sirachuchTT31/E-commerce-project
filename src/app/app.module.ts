@@ -8,7 +8,6 @@ import { HomePageComponent } from './index/home_page/home-page.component';
 import { FooterGlobalComponent } from './component/footer-global/footer-global.component';
 import { HeaderGlobalComponent } from './component/header-global/header-global.component';
 import { NavbarGlobalComponent } from './component/navbar-global/navbar-global.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ConfigurationService } from './shared/service/configuration.service';
 import { ProductService } from './shared/service/products.service';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -18,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeHeaderComponent } from './component/home-header/home-header.component';
 import { DetailProductsComponent } from './index/home_page/detail-products/detail-products.component';
 import { HeaderMenuFlagComponent } from './component/header-menu-flag/header-menu-flag.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 const _PROVIDER = [
   ConfigurationService,
   ProductService
@@ -43,10 +44,12 @@ const _PROVIDER = [
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [
+    HttpClient
     //   {
     //   provide: APP_INITIALIZER,
     //   useFactory: (configService: ConfigurationService) => () =>

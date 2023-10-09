@@ -1,68 +1,74 @@
 <div>
     <app-header-menu-flag [menu_category]="this._category_name"></app-header-menu-flag>
 </div>
-<div class="row box-display-content m-0 d-flex p-4" *ngFor="let rs of this.product_detail; index as i">
-    <div class="box-detail-product-left mb-5">
-        <div class="card-box-detail">
-            <div class="box-img-detail text-center">
-                <img src="{{rs.global_image}}" class="img-content-detail ">
+<form [formGroup]="detail_produts">
+    <div class="row box-display-content m-0 d-flex p-4" *ngFor="let rs of this.product_detail; index as i">
+        <div class="box-detail-product-left mb-5">
+            <div class="card-box-detail">
+                <div class="box-img-detail text-center">
+                    <img src="{{rs.global_image}}" class="img-content-detail ">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="box-detail-product-right ">
-        <div class="box-text-detail-product mb-1">
-            <p class="text-title-detail-product m-0">สินค้า</p>
-            <p class="text-inline-detail-product">{{rs.product_name}}</p>
-        </div>
-        <div class="box-text-detail-product mb-1">
-            <p class="text-title-detail-product m-0">ยี่ห้อ</p>
-            <p class="text-inline-detail-product">{{rs.product_for_company}}</p>
-        </div>
-        <div class="box-text-detail-product mb-1">
-            <p class="text-title-detail-product m-0">รายละเอียด</p>
-            <p class="text-inline-detail-product">{{rs.product_detail}}</p>
-        </div>
-        <div class="box-text-detail-product mb-1">
-            <p class="text-title-detail-product m-0">ราคา</p>
-            <p class="text-inline-detail-product text-danger">{{formatNumber(rs.product_price)}} ฿</p>
-        </div>
-        <div class="box-text-detail-product mb-1">
-            <p class="text-title-detail-product m-0">จำนวน</p>
-            <div class="box-group-add-remove">
-                <div class="input-group ">
-                    <div class="input-group-btn ">
-                        <button class="btn btn-add-remove"><span class=""></span>-</button>
-                    </div>
-                    <input type="text" id="myNumber" class="form-control input-number bd-solid-btn" value="1" />
-                    <div class="input-group-btn">
-                        <button class="btn btn-add-remove"><span class="">+</span></button>
-                    </div>
-                    <label class="ms-2 mt-2">จำนวนคงเหลือ {{(rs.product_qty)}}</label>
-                </div>
-                
+        <div class="box-detail-product-right ">
+            <div class="box-text-detail-product mb-1">
+                <p class="text-title-detail-product m-0">สินค้า</p>
+                <p class="text-inline-detail-product">{{rs.product_name}}</p>
             </div>
-        </div>
-        <div class="box-text-detail-product mb-4">
-            <p class="text-title-detail-product m-0">ลักษณะ</p>
-            <!-- {{i}} -->
-            <div class="w-50 d-flex">
-                <div class="w-120px pt-2 me-2" *ngFor="let type of this.product_detail[i].product_type;">
-                    <input type="checkbox" class="btn-check" id="btn-check-2">
-                    <label class="btn btn-light b-boder w-120px" for="btn-check-2"> {{(type)}}</label>
-                </div>
+            <div class="box-text-detail-product mb-1">
+                <p class="text-title-detail-product m-0">ยี่ห้อ</p>
+                <p class="text-inline-detail-product">{{rs.product_for_company}}</p>
+            </div>
+            <div class="box-text-detail-product mb-1">
+                <p class="text-title-detail-product m-0">รายละเอียด</p>
+                <p class="text-inline-detail-product">{{rs.product_detail}}</p>
+            </div>
+            <div class="box-text-detail-product mb-1">
+                <p class="text-title-detail-product m-0">ราคา</p>
+                <p class="text-inline-detail-product text-danger">{{formatNumber(rs.product_price)}} ฿</p>
+            </div>
+            <div class="box-text-detail-product mb-1">
+                <p class="text-title-detail-product m-0">จำนวน</p>
+                <div class="box-group-add-remove">
+                    <div class="input-group ">
+                        <div class="input-group-btn ">
+                            <button class="btn btn-add-remove" (click)="removeqty()"><span class=""></span>-</button>
+                        </div>
+                        <input type="text" id="myNumber" class="form-control input-number bd-solid-btn"
+                            formControlName="qty" />
+                        <div class="input-group-btn">
+                            <button class="btn btn-add-remove" (click)="plusqty(rs.product_qty)"><span
+                                    class="">+</span></button>
+                        </div>
+                        <label class="ms-2 mt-2">จำนวนคงเหลือ {{(rs.product_qty)}}</label>
+                    </div>
 
-                <!-- <button class="btn btn-light b-boder w-120px" >
+                </div>
+            </div>
+            <div class="box-text-detail-product mb-4">
+                <p class="text-title-detail-product m-0">ลักษณะ</p>
+                <!-- {{i}} -->
+                <div class="w-50 d-flex">
+                    <div class="w-120px pt-2 me-2" *ngFor="let type of this.product_detail[i].product_type;">
+                        <input type="radio" class="btn-check" id="{{type}}" formControlName="type" value="{{type}}">
+                        <label class="btn btn-light b-boder w-120px" for="{{type}}"> {{(type)}}</label>
+                    </div>
+
+                    <!-- <button class="btn btn-light b-boder w-120px" >
                    
                 </button> -->
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="box-button-add">
+                <button class="button-add-cart me-2 mt-1"
+                    (click)="addCart(rs.product_name,rs.product_for_company,rs.product_detail,rs.product_price,rs._id)">Add
+                    cart </button>
+                <button class="button-buy-product me-2 mt-1">Buy</button>
             </div>
         </div>
-        <hr class="mb-4">
-        <div class="box-button-add">
-            <button class="button-add-cart me-2 mt-1">Add cart </button>
-            <button class="button-buy-product me-2 mt-1">Buy</button>
-        </div>
     </div>
-</div>
+</form>
 <!-- box comment  -->
 <div class="row box-review-product-wrapper-content  m-0 d-flex mt-3">
     <div class="box-wrapper-review-header">

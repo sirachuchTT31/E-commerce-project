@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+@Injectable({
+    providedIn: 'root'
+})
 export class HeaderService {
     BuildRequestHeaders(token: any) {
         let httpHeader = null;
         httpHeader = new HttpHeaders({
-            'token': token
+            'token': token,
         })
+        return httpHeader
     }
     BuildRequestHeadersFormDataNoAuth() {
         let httpHeader = null;
