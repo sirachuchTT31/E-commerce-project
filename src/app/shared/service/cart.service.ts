@@ -33,4 +33,35 @@ export class CartService {
             })
         )
     }
+
+    getCartbyUserName(userName: string): Observable<IBaseCollectionResult<any> | undefined> {
+        let param = userName
+        let url = this.baseApi + "api/cart/get_by_id/" + param
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'token': this.token_rs
+        });
+        let options = { headers: headers };
+        //let option = this.headers.BuildRequestHeaders(this.token.tokenStorage)
+        return this.http.get(url, options,).pipe(map((res) => res),
+            catchError((err) => {
+                return of(err)
+            })
+        )
+    }
+
+    updateCartbyUserName(list: Cartdetail): Observable<IBaseCollectionResult<any> | undefined> {
+        let param = list
+        let url = this.baseApi + "api/cart/update_cart"
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'token': this.token_rs
+        });
+        let options = { headers: headers };
+        return this.http.post(url, param, options,).pipe(map((res) => res),
+            catchError((err) => {
+                return of(err)
+            })
+        )
+    }
 }

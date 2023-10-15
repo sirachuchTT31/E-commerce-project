@@ -7,4 +7,5 @@ export interface Cartdetail {
     product_price?: number,
     product_qty?: number,
     product_type?: string,
+    product_image?: string
 }
