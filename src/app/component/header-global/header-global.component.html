@@ -1,27 +1,43 @@
 <!-- <div class="row  d-flex text-center m-0"> -->
 
 <div class=" box-header text-start ">
-    <div class="d-flex justify-content-between">
-        <a class="">
+    <div class="d-flex ">
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom">Contact</a>
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom">Apply Partner</a>
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="this.role == 'Partner'">Partner Menu</a>
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="!this.is_Token">Register</a>
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="!this.is_Token">Login</a>
+        <!-- <a class="">
             Home 
         </a>
-        |
+        <span>
+            |
+        </span>
         <a class="">
             About
         </a>
-        |
+        <span>
+            |
+        </span>
         <a class="">
             Contact
         </a>
-        |
-        <a class="">
+        <span >
+            |
+        </span>
+        
+        <a class="" *ngIf="!this.is_Token">
             Login
         </a>
-        |
-        <a class="">
+        <span *ngIf="!this.is_Token">
+            |
+        </span>
+        <a class="" *ngIf="!this.is_Token ">
             Register
         </a>
-        |
+        <span *ngIf="!this.is_Token">
+            |
+        </span> -->
     </div>
 </div>
 <!-- </div> -->
