@@ -4,13 +4,15 @@ import { Injectable } from "@angular/core"
     providedIn: "root",
 })
 export class TokenStorageService {
-    signIn(user_name: any, token: any, name: any, lastname: any, user_profile: any, time_out: any) {
+    cart_List: Array<any> = []
+    signIn(user_name: any, token: any, name: any, lastname: any, user_profile: any, time_out: any , role : any) {
         localStorage.setItem("user_name", user_name)
         localStorage.setItem("token", token)
         localStorage.setItem("name", name)
         localStorage.setItem("lastname", lastname)
         localStorage.setItem("user_profile", user_profile)
         localStorage.setItem("time_out", time_out)
+        localStorage.setItem("r",role)
     }
     signOut() {
         localStorage.removeItem("user_name")
@@ -19,6 +21,22 @@ export class TokenStorageService {
         localStorage.removeItem("lastname")
         localStorage.removeItem("user_profile")
         localStorage.removeItem("time_out")
+        localStorage.removeItem("r")
+    }
+    countCart(length: any) {
+        localStorage.setItem("cart_count", length)
+    }
+    saveCart(obj: any) {
+        localStorage.setItem("cart", obj)
+    }
+    public get roleStorage(): string | null {
+        return localStorage.getItem("r")
+    }
+    public get countcartStorage(): string | null {
+        return localStorage.getItem("cart_count")
+    }
+    public get ItemcartStorage(): string | null {
+        return localStorage.getItem("cart")
     }
     public get usernameStorage(): string | null {
         return localStorage.getItem("user_name")
