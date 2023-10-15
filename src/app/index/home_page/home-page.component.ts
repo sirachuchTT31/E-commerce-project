@@ -56,7 +56,12 @@ export class HomePageComponent implements OnInit {
   }
   _detailProducts(_id: any) {
     //console.log('/web/prodcuts/' + _id)
-    window.location.href = './web/prodcuts/' + _id
+    if (this.user_token == null) {
+      window.location.href = '/web/login'
+    }
+    else {
+      window.location.href = './web/prodcuts/' + _id
+    }
   }
   formatNumber(x: any) {
     if (x) {

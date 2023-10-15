@@ -39,7 +39,7 @@ export class AuthPageComponent {
         this.authService.postLogin(param).subscribe((rs) => {
           console.log(rs)
           if (rs?.status == 200) {
-            this.tokenStorageservice.signIn(rs.result.payload.user_name, rs.result.token, rs.result.payload.name, rs.result.payload.lastname, rs.result.payload.user_profile, rs.result.time_out_token)
+            this.tokenStorageservice.signIn(rs.result.payload.user_name, rs.result.token, rs.result.payload.name, rs.result.payload.lastname, rs.result.payload.user_profile, rs.result.time_out_token, rs.result.payload.role)
             Swal.fire({
               icon: 'success',
               text: rs?.message,
