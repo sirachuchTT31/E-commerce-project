@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'e-commerce-web';
   page = ''
   token_time_out: any
+  is_check_detail_products  = ''
   constructor(private router: Router, private routeActive: ActivatedRoute, private spinner: NgxSpinnerService, private tokenStorageservice: TokenStorageService) {
     this.spinner.show()
     this.token_time_out = this.tokenStorageservice.timeoutStorage
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
       console.log(this.router.url)
       let current = this.router.url.split('/')
       this.page = current[2]
+      this.is_check_detail_products = current[3]
       this.spinner.hide()
     },)
     this.timeout_token()

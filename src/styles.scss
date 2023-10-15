@@ -5,9 +5,11 @@
 * {
     font-family: 'Kanit', sans-serif;
 }
+
 svg {
     cursor: pointer !important;
 }
+
 html {
     min-width: 1080px;
     font-family: 'Kanit', sans-serif !important;
@@ -72,7 +74,8 @@ html {
     top: 24px;
     width: 25px;
 }
-.doth-count{
+
+.doth-count {
     height: 25px;
     width: 25px !important;
     display: inline-block;
@@ -80,6 +83,7 @@ html {
     border-radius: 50%;
     margin-left: 18px;
 }
+
 .text-count {
     color: #ee7822;
     font-weight: 800;
@@ -94,6 +98,24 @@ html {
 }
 
 //header 
+a {
+    text-decoration: none !important;
+
+}
+
+.a-link-custom {
+    color: #4056A1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.a-link-custom:hover {
+    color: #5D8AFF;
+    // font-size: ;
+    //opacity: 0.5;
+    font-weight: 800;
+}
+
 .page-headder-wrapper {
     padding-left: 200px;
     padding-right: 200px;
@@ -109,11 +131,13 @@ html {
     width: 50% !important;
     // display: flex;
 }
-@media screen  and (max-width: 1440px){
-    .box-header{
+
+@media screen and (max-width: 1440px) {
+    .box-header {
         width: 100% !important;
     }
 }
+
 .box-category {
     border-radius: 5px;
     background-color: #AEC3AE;
@@ -177,14 +201,15 @@ html {
     background-color: #F3F3F3;
     //opacity: 0.5;
 }
-.text-price{
+
+.text-price {
     color: #4056A1;
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 2;
     text-shadow: 2px 2px #E5E6F6;
     // box-shadow: 
-    
+
 }
 
 //home-header
@@ -229,11 +254,12 @@ html {
     // padding: 50px !important;
     width: 20% !important;
 }
-.box-content-home-page :hover{
+
+.box-content-home-page :hover {
     border-radius: 10px;
     opacity: 0.9;
     padding: 10px;
-    box-shadow: 5px   5px  5px  5px  rgba(12, 5, 62, 0.15);
+    box-shadow: 5px 5px 5px 5px rgba(12, 5, 62, 0.15);
 }
 
 @media screen and (max-width: 1440px) {
@@ -367,7 +393,8 @@ html {
 .w-50 {
     width: 50% !important;
 }
-.w-120px{
+
+.w-120px {
     width: 120px !important;
 }
 
@@ -375,17 +402,19 @@ html {
 .box-header-menu-flag {
     width: 50% !important;
 }
-.text-menu-flag{
+
+.text-menu-flag {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 2px;
 }
-.text-menu-flag :hover{
+
+.text-menu-flag :hover {
     color: #5D8AFF;
     font-weight: 800;
 }
 
-.b-boder{
+.b-boder {
     border: solid 1px #000 !important;
     border-radius: 5px !important;
 }
