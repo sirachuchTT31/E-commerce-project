@@ -45,14 +45,16 @@
     
 </div> -->
 <div class="row box-display-content m-0 d-flex gap-4 ">
-    <div class="box-content-home-page" *ngFor="let rs of this.products;" index="i">
+    <div class="box-content-home-page" *ngFor="let rs of this.products;let i = index">
         <div class="card-custom-border mb-5" style="width: 15rem;height: 30rem;" (click)="_detailProducts(rs._id)">
             <img src="{{rs.global_image}}" class="card-img-top img-content mb-3" alt="...">
             <div class="card-body ">
                 <p class="card-title-header pb-2">{{rs.product_name}}</p>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p> -->
-                <p class="card-title-detail">{{rs.product_detail}}</p><br>
+                <p class="card-title-detail ellipsis mb-1">{{rs.product_detail}}</p>
+                
+                <p class="card-title-detail ellipsis mb-1">{{rs.detail[0].shop_name}}</p>
                 <!-- <a href="#" class="btn btn-success">รายละเอียด</a> -->
                 <!-- <a href="#" class="btn btn-primary mt-5">Go somewhere</a> -->
                 

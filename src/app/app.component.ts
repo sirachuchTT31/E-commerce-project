@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   token_time_out: any
   is_check_detail_products  = ''
   constructor(private router: Router, private routeActive: ActivatedRoute, private spinner: NgxSpinnerService, private tokenStorageservice: TokenStorageService) {
-    this.spinner.show()
+    // this.spinner.show()
     this.token_time_out = this.tokenStorageservice.timeoutStorage
   }
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
       let current = this.router.url.split('/')
       this.page = current[2]
       this.is_check_detail_products = current[3]
-      this.spinner.hide()
+      // this.spinner.hide()
     },)
     this.timeout_token()
   }

@@ -2,8 +2,10 @@
 
 <div class=" box-header text-start ">
     <div class="d-flex ">
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom" routerLink="/products">All products</a>
         <a href="#" class="me-lg-4 me-md-2 a-link-custom">Contact</a>
         <a href="#" class="me-lg-4 me-md-2 a-link-custom">Apply Partner</a>
+        <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="this.is_Token" routerLink="/web/purchasing">Purchasing</a>
         <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="this.role == 'Partner'">Partner Menu</a>
         <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="!this.is_Token">Register</a>
         <a href="#" class="me-lg-4 me-md-2 a-link-custom" *ngIf="!this.is_Token">Login</a>

@@ -11,6 +11,6 @@ export class HeaderMenuFlagComponent {
   @Input() menu_detail: string = ''
 
   callHomeurl(){
-    window.location.href = 'web/prodcuts'
+    window.location.href = 'products'
   }
 }

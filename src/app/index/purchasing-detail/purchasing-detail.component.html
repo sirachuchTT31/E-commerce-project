@@ -1,0 +1,131 @@
+<div class="box-wrapper-purchasing">
+    <div class="box-left-purchasing">
+        <div class="box-set-profile">
+            <div class="profile-detail">
+                <img src="https://i.pinimg.com/474x/05/c3/59/05c359cd010df3e7f1ea3cb6f6f54fad.jpg" style="width:80px"
+                    height="80px">
+            </div>
+            <div class="box-text-profile">
+                <p class="m-0">{{this.name_local}}</p>
+                <small>Setting profile</small>
+            </div>
+
+        </div>
+        <div class="box-set-profile">
+            <ul>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#3655b3"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg> บัญชีของฉัน
+                </li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#3655b3"
+                        class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                    </svg>
+                    คำสั่งซื้อ
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#3655b3"
+                        class="bi bi-shop-window" viewBox="0 0 16 16">
+                        <path
+                            d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    ร้านค้าของฉัน
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="line-x">
+
+    </div>
+    <div class="box-right-purchasing">
+        <div class="box-purchasing-set-content" *ngIf="menu == 'purchasing' ">
+            <div class="box-purchasing-menu-nav">
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'all'}"
+                    (click)="set_detail_menu('all')">
+                    รายการทั้งหมด
+                </a>
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'payment'}"
+                    (click)="set_detail_menu('payment')">
+                    ที่ต้องชำระ
+                </a>
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'delivery'}"
+                    (click)="set_detail_menu('delivery')">
+                    ต้องจัดส่ง
+                </a>
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'error'}"
+                    (click)="set_detail_menu('error')">
+                    สินค้ามีปัญหา
+                </a>
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'success'}"
+                    (click)="set_detail_menu('success')">
+                    สำเร็จ
+                </a>
+                <a class="list-purchasing-menu" [ngClass]="{'list-purchasing-menu-active' : detail_menu == 'cancel'}"
+                    (click)="set_detail_menu('cancel')">
+                    ยกเลิก / เคลม
+                </a>
+            </div>
+
+            <div class="box-purchasing-condition" *ngFor="let rs of this.order_detail_object;index as i" >
+                <div class="box-purchasing-condition-header" >
+                    <img src="https://i.pinimg.com/originals/ce/56/99/ce5699233cbc0f142250b520d967dff7.png">
+                    <p>{{rs.shop.shop_name}}</p>
+                    <button class="btn btn-custom-theme-detail ">เยี่ยมชมร้าน</button>
+                    <button class="btn btn-custom-theme-contact">ติดต่อ</button>
+                    <div class="box-status-header-wrapper" *ngIf="rs.order_detail.order_status == 'APSTEP1'">
+                        สั่งซื้อรออนุมัติจากร้านค้า
+                    </div>
+                    <div class="box-status-header-wrapper" *ngIf="rs.order_detail.order_status == 'APSTEP2'">
+                        ร้านค้าอนุมัติรอการจัดส่ง
+                    </div>
+                    <div class="box-status-header-wrapper" *ngIf="rs.order_detail.order_status == 'APSTEP3'">
+                        ร้านค้าจัดส่งสินค้าเรียบร้อย
+                    </div>
+                    <div class="box-status-header-wrapper" *ngIf="rs.order_detail.order_status == 'APSTEP4'">
+                        พัสดุอยู่ในระหว่างจัดส่ง
+                    </div>
+                    <div class="box-status-header-wrapper" *ngIf="rs.order_detail.order_status == 'APSTEP5'">
+                        พัสดุจัดส่งเรียบร้อย
+                    </div>
+
+                </div>
+                <hr>
+                <div class="box-purchasing-condition-body">
+                    <div class="box-purchasing-condition-body-boder">
+                        <img src="{{rs.product.global_image}}">
+                    </div>
+                    <!-- <small class="text-body-purchasing">Lay snackLay snackLay snackLa</small> -->
+                    <!-- <div class="box-detail-body-purchasing"> -->
+                    <div class="box-detail-body-purchasing">
+                        <p>
+                            {{rs.product.product_name}}
+                        </p>
+                        <small>
+                            {{rs.product.product_detail}}
+                        </small>
+                        <p>
+                            X {{rs.order_detail.product_qty}}
+                        </p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="box-price-condition">
+                    <p>รวมราคาซื้อ</p>
+                    <h1>{{formatNumber(rs.order_detail.total_price)}} ฿</h1>
+                </div>
+                <hr>
+                <div class="box-button-condtion-footer">
+                    <button type="button"
+                        class="btn btn-custom-theme-detail me-2 w-auto ">ตรวจสอบสินค้าเรียบร้อย</button>
+                    <button type="button" class="btn btn-custom-theme-contact w-120px">ติดต่อผู้ขาย</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,223 @@
+.box-wrapper-purchasing {
+    width: 100% !important;
+    min-height: 980px !important;
+    max-height: 100% !important;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.box-left-purchasing {
+    //width: 15%;
+    min-width: 250px;
+    min-height: 960px;
+    max-height: 100%;
+}
+
+.box-right-purchasing {
+    width: 100%;
+    min-height: 960px;
+    max-height: 100%;
+}
+
+.box-set-profile {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.profile-detail {
+    position: relative;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.profile-detail img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50% !important;
+}
+
+.box-text-profile {
+    padding-left: 20px;
+
+}
+
+.box-text-profile p {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.box-text-profile small {
+    padding-left: 5px;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.box-text-profile small:hover {
+    padding-left: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #3655b3;
+}
+
+.box-purchasing-set-content {
+    padding-top: 20px;
+}
+
+.line-x {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 20px;
+    border: 1px solid #3655b3;
+    width: 2px;
+    min-height: 960px;
+    max-height: 100%;
+    opacity: 0.5;
+}
+
+.box-purchasing-menu-nav {
+    width: 100%;
+    border: 1px solid #E5E3E3;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.box-purchasing-condition {
+    margin-top: 20px;
+    border: 1px solid #E5E3E3;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 400px;
+}
+
+.box-purchasing-condition-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.box-purchasing-condition-header p {
+    padding-top: 20px;
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 800;
+}
+
+.box-purchasing-condition-header button {
+    width: auto;
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 12px;
+    height: 30px;
+}
+
+.btn-custom-theme-detail {
+    background-color: #3655b3;
+    color: #fff;
+}
+
+.btn-custom-theme-contact {
+    border: 1px solid #3655b3;
+    background-color: #fff;
+    color: #000;
+}
+
+.box-purchasing-condition-header {
+    display: flex;
+}
+
+.box-status-header-wrapper {
+    width: 70% !important;
+    text-align: end !important;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #3CBC3C;
+}
+
+//body 
+.box-purchasing-condition-body {
+    display: flex;
+}
+
+.box-purchasing-condition-body-boder {
+    width: 120px;
+    height: 80px;
+    border: 1px solid #E0E3E4;
+    border-radius: 2px;
+    text-align: center !important;
+    padding: 5px !important;
+
+}
+.box-detail-body-purchasing{
+    width: 100%;
+    padding-left: 20px;
+    //display: contents !important;
+}
+.box-detail-body-purchasing p {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0px !important;
+    letter-spacing: 1px;
+}
+.box-detail-body-purchasing small {
+    font-size: 14px;
+    font-weight: 300;
+}
+.box-purchasing-condition-body-boder img {
+    object-fit: cover !important;
+    //width: fit-content;
+    margin: 0px !important;
+  
+    height: 70px!important;
+    width: 110px !important;
+    border-radius: 0px !important;
+}
+.box-price-condition{
+    //width: 100%;
+    display: flex !important;
+    justify-content: end !important;
+}
+.box-price-condition p{
+    width: auto !important;
+    padding-top: 15px;
+
+}
+.box-price-condition h1{
+    width: auto !important;
+    margin-left: 20px !important;
+    color: #BE6135;
+}
+.box-button-condtion-footer{
+ padding-top: 20px;
+  width: 100%;
+  text-align: end;
+}
+.list-purchasing-menu {
+    // min-width: 80px;
+    background-color: #85B0FA;
+    width: 20%;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding-top: 5px;
+    text-align: center;
+    margin: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.list-purchasing-menu-active {
+    background-color: #3655b3 !important;
+}

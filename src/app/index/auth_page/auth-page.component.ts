@@ -39,20 +39,20 @@ export class AuthPageComponent {
         this.authService.postLogin(param).subscribe((rs) => {
           console.log(rs)
           if (rs?.status == 200) {
-            this.tokenStorageservice.signIn(rs.result.payload.user_name, rs.result.token, rs.result.payload.name, rs.result.payload.lastname, rs.result.payload.user_profile, rs.result.time_out_token, rs.result.payload.role)
+            this.tokenStorageservice.signIn(rs.result.payload.user_name, rs.result.token, rs.result.payload.name, rs.result.payload.lastname, rs.result.payload.user_profile, rs.result.time_out_token, rs.result.payload.role, rs.result.payload.user_id,)
             Swal.fire({
               icon: 'success',
               text: rs?.message,
               //showCancelButton: true,
               showConfirmButton: false,
               timer: 3000
-            }),
-              window.location.href = '/web/prodcuts'
+            })
+            window.location.href = 'products'
           }
           else {
             Swal.fire({
               icon: 'error',
-              title: rs?.message,
+              text: rs?.message,
               timer: 3000,
               showConfirmButton: false,
             })

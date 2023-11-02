@@ -191,6 +191,16 @@ a {
     font-size: 16px;
     font-weight: 200;
     height: 40px !important;
+    text-overflow: ellipsis !important;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    /* enables ellipsis */
+    white-space: nowrap;
+    /* keeps the text in a single line */
+    overflow: hidden;
+    /* keeps the element from overflowing its parent */
 }
 
 .box-display-content {
@@ -417,4 +427,30 @@ a {
 .b-boder {
     border: solid 1px #000 !important;
     border-radius: 5px !important;
+}
+
+//detail 
+
+.box-shop-left-wrapper {
+    display: flex;
+    width: auto !important;
+}
+
+.box-shop-left-wrapper-text {
+    width: auto !important;
+}
+
+.box-shop-left-wrapper-img {
+    width: 150px !important;
+}
+
+// remove dot 
+ul {
+    list-style-type: none;
+    // margin: 0px !important;
+    //padding: 0px !important;
+    padding-left: 0px !important;
+}
+li {
+    padding-top: 15px;
 }

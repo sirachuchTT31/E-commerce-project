@@ -24,6 +24,8 @@ export class DetailProductsComponent {
   user_name_storage: any
   cart_Array: Array<any> = []
   cart_service_map_value: Array<any> = []
+  shop_Array: any
+  status_valid_details: boolean = false
   public testValue = "TEST"
   @ViewChild(NavbarGlobalComponent) child_parent?: NavbarGlobalComponent;
   constructor(private route: ActivatedRoute, private productService: ProductService, private categoryService: CategoryService,
@@ -35,8 +37,8 @@ export class DetailProductsComponent {
       product_detail: new FormControl(''),
       product_price: new FormControl(''),
       product_image: new FormControl(''),
-      qty: new FormControl(1),
-      type: new FormControl('')
+      qty: new FormControl(1, [Validators.required]),
+      type: new FormControl('', [Validators.required])
     })
   }
   ngOnInit() {
@@ -53,7 +55,9 @@ export class DetailProductsComponent {
       console.log(e)
     }
   }
-
+  checkValue() {
+    console.log(this.detail_produts.valid)
+  }
 
   formatNumber(x: any) {
     if (x) {
@@ -64,57 +68,80 @@ export class DetailProductsComponent {
   }
   addCart(pd_name: any, pd_for_company: any, pd_detail: any, pd_price: any, pd_id: any, global_image: any) {
     if (this.localstorageService.tokenStorage) {
-      this.detail_produts.controls['product_id'].setValue(pd_id)
-      this.detail_produts.controls['product_name'].setValue(pd_name)
-      this.detail_produts.controls['product_for_company'].setValue(pd_for_company)
-      this.detail_produts.controls['product_detail'].setValue(pd_detail)
-      this.detail_produts.controls['product_price'].setValue(pd_price)
-      this.detail_produts.controls['product_image'].setValue(global_image)
-      let new_product = {
-        product_id: this.detail_produts.controls['product_id'].value,
-        product_name: this.detail_produts.controls['product_name'].value,
-        product_for_company: this.detail_produts.controls['product_for_company'].value,
-        product_detail: this.detail_produts.controls['product_detail'].value,
-        product_price: this.detail_produts.controls['product_price'].value,
-        product_qty: this.detail_produts.controls['qty'].value,
-        product_type: this.detail_produts.controls['type'].value,
-        product_image: this.detail_produts.controls['product_image'].value
-      }
-      if (this.cart_service_map_value.length == 0) {
-        this.cart_Array.push(new_product)
-        let param = {
-          user_name: this.user_name_storage,
-          product_List: this.cart_Array
+      if (this.detail_produts.valid == true) {
+        this.detail_produts.controls['product_id'].setValue(pd_id)
+        this.detail_produts.controls['product_name'].setValue(pd_name)
+        this.detail_produts.controls['product_for_company'].setValue(pd_for_company)
+        this.detail_produts.controls['product_detail'].setValue(pd_detail)
+        this.detail_produts.controls['product_price'].setValue(pd_price)
+        this.detail_produts.controls['product_image'].setValue(global_image)
+        let new_product = {
+          product_id: this.detail_produts.controls['product_id'].value,
+          product_name: this.detail_produts.controls['product_name'].value,
+          product_for_company: this.detail_produts.controls['product_for_company'].value,
+          product_detail: this.detail_produts.controls['product_detail'].value,
+          product_price: this.detail_produts.controls['product_price'].value,
+          product_qty: this.detail_produts.controls['qty'].value,
+          product_type: this.detail_produts.controls['type'].value,
+          product_image: this.detail_produts.controls['product_image'].value
         }
-        //call api 
-        this.cartService.postCart(param)
+        if (this.cart_service_map_value.length == 0) {
+
+          this.cart_Array.push(new_product)
+          console.log(this.cart_Array)
+          let param = {
+            user_name: this.user_name_storage,
+            product_List: this.cart_Array
+          }
+          //call api 
+          this.cartService.postCart(param).subscribe((rs) => {
+            if (rs?.status == 200) {
+              Swal.fire({
+                icon: 'success',
+                text: rs?.message,
+                timer: 3000,
+                showConfirmButton: false,
+              })
+            }
+            else {
+              Swal.fire({
+                icon: 'error',
+                text: rs?.message,
+                timer: 3000,
+                showConfirmButton: false,
+              })
+            }
+          })
+        }
+        else {
+          this.cart_Array.push(new_product)
+          let param = {
+            user_name: this.user_name_storage,
+            product_List: this.cart_Array
+          }
+
+          //call api
+          this.cartService.updateCartbyUserName(param).subscribe((rs) => {
+            if (rs?.status == 200) {
+              //call localstorge 
+              this.localstorageService.countCart(this.cart_service_map_value.length)
+              //this.child_parent?.setValue_Count(this.cart_Array.length)
+              Swal.fire({
+                icon: 'success',
+                text: rs?.message,
+                timer: 3000,
+                showConfirmButton: false,
+              })
+            }
+            else {
+
+            }
+          })
+        }
       }
       else {
-        this.cart_Array.push(new_product)
-        let param = {
-          user_name: this.user_name_storage,
-          product_List: this.cart_Array
-        }
-
-        //call api
-        this.cartService.updateCartbyUserName(param).subscribe((rs) => {
-          if (rs?.status == 200) {
-            //call localstorge 
-            this.localstorageService.countCart(this.cart_service_map_value.length)
-            //this.child_parent?.setValue_Count(this.cart_Array.length)
-            Swal.fire({
-              icon: 'success',
-              text: rs?.message,
-              timer: 3000,
-              showConfirmButton: false,
-            })
-          }
-          else {
-
-          }
-        })
+        this.status_valid_details = true
       }
-
     }
     else {
       window.location.href = '/web/login'
@@ -124,7 +151,6 @@ export class DetailProductsComponent {
     if (maxQty > this.detail_produts.controls['qty'].value) {
       let qty = this.detail_produts.controls['qty'].value + 1
       this.detail_produts.controls['qty'].setValue(qty)
-      console.log(this.detail_produts.controls['qty'].value)
     }
   }
   removeqty() {
@@ -139,6 +165,9 @@ export class DetailProductsComponent {
         if (rs?.status == 200) {
           this.product_detail.push(rs.result)
           this._category_code = rs.result.category_code
+          console.log(this._category_code)
+          this.shop_Array = rs.result.shop_detail
+          console.log(this.shop_Array)
           await this.getCategoryName()
         }
         else {

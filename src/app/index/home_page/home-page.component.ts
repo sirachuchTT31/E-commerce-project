@@ -40,6 +40,7 @@ export class HomePageComponent implements OnInit {
         for (let k = 0; k < rs?.result.length; k++) {
           // console.log(rs.result?.product_type)
           this.products.push(rs?.result[k])
+          console.log(rs?.result[k].detail.shop_name)
           console.log(this.products)
         }
       }

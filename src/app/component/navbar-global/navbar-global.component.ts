@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit, Input, Injectable, Output, EventEm
 import { DetailProductsComponent } from 'src/app/index/home_page/detail-products/detail-products.component';
 import { CartService } from 'src/app/shared/service/cart.service';
 import { TokenStorageService } from 'src/app/shared/service/token.storage.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-navbar-global',
   templateUrl: './navbar-global.component.html',
@@ -25,14 +26,14 @@ export class NavbarGlobalComponent implements AfterViewInit, AfterContentInit {
     this.user_name_service = this.tokenStorageservice.usernameStorage
   }
   ngOnInit() {
-    
+
   }
   ngAfterViewInit() {
     // setTimeout(()=>{
     //   this.cart_length = this.child_parent?.cart_service_map_value.length
     //   console.log(this.cart_length)
     // },5000)
-   
+
   }
   setCount() {
     // this.cart_length = 
@@ -56,7 +57,19 @@ export class NavbarGlobalComponent implements AfterViewInit, AfterContentInit {
   //   console.log("Cart", this.cart_length)
   // }
   _signoutAuth() {
-    this.tokenStorageservice.signOut();
-    window.location.href = '/web/login'
+    Swal.fire({
+      text: 'Are you sure you want to sign out',
+      icon: 'question',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Sign out"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        this.tokenStorageservice.signOut();
+        window.location.href = '/web/login'
+      }
+    })
+
   }
+
 }

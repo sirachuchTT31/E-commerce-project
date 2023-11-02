@@ -19,6 +19,7 @@ import { DetailProductsComponent } from './index/home_page/detail-products/detai
 import { HeaderMenuFlagComponent } from './component/header-menu-flag/header-menu-flag.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { PurchasingDetailComponent } from './index/purchasing-detail/purchasing-detail.component';
 const _PROVIDER = [
   ConfigurationService,
   ProductService
@@ -34,6 +35,7 @@ const _PROVIDER = [
     HomeHeaderComponent,
     DetailProductsComponent,
     HeaderMenuFlagComponent,
+    PurchasingDetailComponent,
   ],
   imports: [
     CommonModule,
